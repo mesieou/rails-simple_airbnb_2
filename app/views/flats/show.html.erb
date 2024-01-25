@@ -1,0 +1,44 @@
+<img src="../../assets/images/794a4fda36a64b7fafd20fbcb5971633.webp" alt="">
+<div class="flat-booking-share">
+  <div class="name-address-description-map">
+    <div class="name-address bg-light p-3">
+      <h1> <%= @flat.name %></h1>
+      <p> <%= @flat.address %></p>
+    </div>
+    <div class="description-map bg-light p-3">
+      <h2>A bit more about this flat</h2>
+      <p> <%= @flat.description %></p>
+    </div>
+  </div>
+  <div class="booking-share p-3 bg-light">
+    <h3>Book this place!</h3>
+    <%= form_with(model: @flat) do |f| %>
+      <%= f.field_input :from_date, placeholder: '12/10/2017' %>
+      <%= f.field_input :to_date, placeholder: '18/10/2017' %>
+      <%= f.submit class: 'btn btn-success' %>
+    <% end %>
+  </div>
+  <div class="details">
+    <h2>Details</h2>
+    <div class="guest-price p-3 bg-light">
+      <div class="price d-flex">
+        <i class="fa-solid fa-people-group"></i>
+        <p> <%= @flat.number_of_guests %> people</p>
+      </div>
+      <div class="price d-flex">
+        <i class="fa-solid fa-euro-sign"></i>
+        <p> <%= @flat.price_per_night %> </p>
+      </div>
+    </div>
+  </div>
+  <div class="share p-3 bg-light">
+    <div class="d-flex">
+      <p>Share</p>
+      <div class="links d-flex">
+        <i class="fa-brands fa-facebook"></i>
+        <i class="fa-brands fa-twitter"></i>
+        <i class="fa-brands fa-instagram"></i>
+      </div>
+    </div>
+  </div>
+</div>

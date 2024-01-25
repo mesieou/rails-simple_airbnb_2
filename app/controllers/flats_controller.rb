@@ -10,10 +10,15 @@ class FlatsController < ApplicationController
   def create
     @flat = Flat.new(flat_params)
     if @flat.save
+      flash[:success] = 'Flat was succesfully created.'
       redirect_to flats_path
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def show
+    @flat = Flat.find(params[:id])
   end
 
   private

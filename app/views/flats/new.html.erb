@@ -1,8 +1,13 @@
 
-<%= content_tag(:div, @flat.errors.full_messages.first, class: 'alert alert-danger') if @flat.errors.any? %>
+<%# display message if the user does not complete the form properly %>
+<% if @flat.errors.any? %>
+   <div class="alert alert-danger">
+     <%= @flat.errors.full_messages.first %>
+   </div>
+<% end %>
 
-
-<div class="d-flex justify-content-center align-items-center vh-100">
+<%# form %>
+<div class="d-flex justify-content-center vh-100">
   <div>
     <h1 class="text-center">New Flat form</h1>
     <%= form_with(model: @flat) do |f| %>
