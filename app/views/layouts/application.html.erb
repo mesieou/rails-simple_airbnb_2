@@ -13,6 +13,14 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="d-flex p-3 bg-light justify-content-between align-items-center">
+      <%= link_to 'Simple Airbnb', flats_path, class: 'text-decoration-none text-dark fw-bold'  %>
+      <div class="btn btn-outline-primary">
+       <p class="m-0">Add a Flat</p>
+      </div>
+    </div>
+    <div class="container my-3">
+      <%= yield %>
+    </div>
   </body>
 </html>

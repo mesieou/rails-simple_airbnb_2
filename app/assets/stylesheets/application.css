@@ -13,3 +13,20 @@
  *= require_tree .
  *= require_self
  */
+ .flats {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+}
+
+ @media (max-width: 992px) {
+  .flats {
+    grid-template-columns: 1fr 1fr;
+  }
+ }
+
+ @media (max-width: 768px) {
+  .flats {
+    grid-template-columns: 1fr;
+  }
+ }
