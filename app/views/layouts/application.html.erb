@@ -17,6 +17,7 @@
       <%= link_to 'Simple Airbnb', flats_path, class: 'text-decoration-none text-dark fw-bold'  %>
       <%= link_to 'Add a flat', new_flat_path, class: 'btn btn-outline-primary' %>
     </div>
+    <%= yield :image_section %>
     <div class="container my-3">
       <% if flash[:success].present? %>
         <div class="alert alert-success">
