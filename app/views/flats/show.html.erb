@@ -1,10 +1,20 @@
-  <% content_for :image_section do  %>
-    <div id="image-section">
-        <%= image_tag '794a4fda36a64b7fafd20fbcb5971633.webp', alt: "text", class:"flat-img" %>
-    </div>
-  <% end %>
+<%# flat image %>
+<% content_for :image_section do  %>
+  <div id="image-section">
+      <%= image_tag '794a4fda36a64b7fafd20fbcb5971633.webp', alt: "text", class:"flat-img" %>
+  </div>
+<% end %>
+
 
 <div class="flat-booking-share row">
+  <%# succesful message %>
+  <% if flash[:success].present? %>
+        <div class="alert alert-success">
+          <%= flash[:success] %>
+        </div>
+  <% end %>
+
+  <%# Name, address and description column  %>
   <div class="name-address-description-map col-lg-8 col-md-6 col-sm-12">
     <div class="name-address bg-light p-3 mb-3 rounded">
       <h1> <%= @flat.name %></h1>
@@ -15,6 +25,8 @@
       <p> <%= @flat.description %></p>
     </div>
   </div>
+
+  <%# Booking, details and share column  %>
   <div class="booking-details-share col-lg-4 col-md-6 col-sm-12">
     <div class="booking bg-light p-3 mb-3 rounded">
       <h3>Book this place!</h3>
