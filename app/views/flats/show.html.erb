@@ -17,7 +17,10 @@
   <%# Name, address and description column  %>
   <div class="name-address-description-map col-lg-8 col-md-6 col-sm-12">
     <div class="name-address bg-light p-3 mb-3 rounded">
-      <h1> <%= @flat.name %></h1>
+      <div class="name-edit-button d-flex justify-content-between align-items-baseline">
+        <h1> <%= @flat.name %></h1>
+        <%= link_to '', edit_flat_path(@flat), class:"fa-solid fa-pen-to-square fa-lg", style:"color: #178250;" %>
+      </div>
       <p> <%= @flat.address %></p>
     </div>
     <div class="description-map bg-light p-3">

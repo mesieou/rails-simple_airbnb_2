@@ -18,7 +18,8 @@
         </div>
       </div>
       <div class="info p-3">
-          <%= link_to 'More Info', flat_path(flat) %>
+          <%= link_to 'More Info', flat_path(flat), class: 'text-decoration-none' %>
+          <%= link_to 'Edit', edit_flat_path(flat), class: 'text-warning text-decoration-none mx-2'  %>
       </div>
     </div>
   <% end %>
