@@ -4,7 +4,7 @@
   <% @flats.each do |flat| %>
     <div class="flat shadow-sm">
       <div class="name-address-guests-price p-3 bg-light ">
-        <h2> <%= flat.name %> </h2>
+        <%= link_to flat.name, flat_path(flat), class: "text-decoration-none h3 text-dark"  %>
         <p> <%= flat.address %> </p>
         <div class="guests-price d-flex">
           <div class="guests d-flex align-items-baseline">
@@ -18,7 +18,7 @@
         </div>
       </div>
       <div class="info p-3">
-        <p> More Info</p>
+          <%= link_to 'More Info', flat_path(flat) %>
       </div>
     </div>
   <% end %>
