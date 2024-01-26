@@ -1,4 +1,5 @@
 class FlatsController < ApplicationController
+  before_action :set_flat, only: [:show, :edit, :update]
   def index
     @flats = Flat.all
   end
@@ -9,19 +10,31 @@ class FlatsController < ApplicationController
 
   def create
     @flat = Flat.new(flat_params)
-    if @flat.save
-      flash[:success] = 'Flat was succesfully created.'
-      redirect_to flats_path
-    else
-      render :new, status: :unprocessable_entity
-    end
+    save('created')
   end
 
-  def show
+  def show; end
+  def edit; end
+
+  def update
+    @flat.update(flat_params)
+    save('updated')
+  end
+
+  def set_flat
     @flat = Flat.find(params[:id])
   end
 
   private
+
+  def save(word)
+    if @flat.save
+      flash[:success] = "Flat was succesfully #{word}."
+      redirect_to flat_path(@flat)
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
 
   def flat_params
     params.require(:flat).permit(:name, :price_per_night, :address, :number_of_guests, :description)

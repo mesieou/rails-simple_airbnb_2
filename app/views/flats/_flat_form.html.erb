@@ -1,0 +1,29 @@
+<%# display message if the user does not complete the form properly %>
+<% if @flat.errors.any? %>
+   <div class="alert alert-danger">
+     <%= @flat.errors.full_messages.first %>
+   </div>
+<% end %>
+
+<%# form %>
+<div class="d-flex justify-content-center vh-100">
+  <div>
+    <h1 class="text-center">New Flat form</h1>
+    <%= form_with(model: @flat) do |f| %>
+      <div class="d-flex">
+        <div class="name-adress m-3">
+          <%= f.text_field :name, placeholder: 'Name', class: 'form-control mb-3'%>
+          <%= f.text_field :address, placeholder: 'Address', class: 'form-control mb-'%>
+        </div>
+        <div class="price-guests-form m-3">
+          <%= f.text_field :price_per_night, placeholder: 'Price per night', class: 'form-control mb-3'%>
+          <%= f.text_field :number_of_guests, placeholder: 'Number of guests', class: 'form-control mb-0'%>
+        </div>
+      </div>
+      <div class="d-flex flex-column mx-3">
+        <%= f.text_field :description, placeholder: 'Description', class: 'form-control mb-4'%>
+        <%= f.submit class: 'btn btn-outline-primary' %>
+      </div>
+    <% end %>
+  </div>
+</div>
