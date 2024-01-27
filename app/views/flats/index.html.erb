@@ -1,5 +1,17 @@
-<h1>All our Flats (<%= @flats.length %>)</h1>
+<%# search form %>
+<% content_for :search_section do %>
+  <div class="search">
+    <%= form_with(url: flats_path, method: 'get') do |form|  %>
+        <div class="d-flex">
+          <%= form.text_field :search, value: params[:search], placeholder: 'Search by name, address, etc.', class: "form-control mx-1" %>
+          <%= form.submit class: 'btn btn-outline-success' %>
+        </div>
+    <% end %>
+  </div>
+<% end %>
 
+<%# All flats result %>
+<h1>All our Flats (<%= @flats.length %>)</h1>
 <div class="flats">
   <% @flats.each do |flat| %>
     <div class="flat shadow-sm">
